@@ -23,6 +23,7 @@ namespace LR1
             _accountsFileName = "./accounts.bin";         
 
             _keyBytes = HashString_SHA256(password);
+            GC.Collect();
 
             _ivBytes = new byte[_keyBytes.Length / 2];
             Array.Copy(_keyBytes, _ivBytes, _keyBytes.Length / 2);

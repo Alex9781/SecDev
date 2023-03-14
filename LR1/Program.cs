@@ -11,7 +11,6 @@ namespace LR1
             if (System.Diagnostics.Debugger.IsAttached)
             {
                 MessageBox.Show("Debugger is attached");
-                return;
             }
 
             // To customize application configuration such as set high DPI settings or default font,
