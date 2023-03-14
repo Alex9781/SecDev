@@ -1,7 +1,0 @@
-<RCC>
-    <qresource prefix="/">
-        <file>main.qml</file>
-        <file>Auth.qml</file>
-        <file>Index.qml</file>
-    </qresource>
-</RCC>
