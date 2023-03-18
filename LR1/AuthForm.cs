@@ -34,9 +34,11 @@
         {
             this.Hide();
 
-            IndexForm indexForm = new(sm);
-            indexForm.StartPosition = FormStartPosition.Manual;
-            indexForm.Location = this.Location;
+            IndexForm indexForm = new(sm)
+            {
+                StartPosition = FormStartPosition.Manual,
+                Location = this.Location
+            };
             indexForm.Closed += (s, args) => this.Close();
 
             indexForm.Show();
