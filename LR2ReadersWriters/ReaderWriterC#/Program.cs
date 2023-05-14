@@ -1,4 +1,6 @@
-﻿namespace ReaderWriter
+﻿using System.Text;
+
+namespace ReaderWriter
 {
     internal class Program
     {
@@ -55,7 +57,14 @@
         static void WriteFile(string filename)
         {
             string toWrite = DateTime.Now.ToString();
-            File.WriteAllText(filename, toWrite);
+
+            FileStream file = new(filename, FileMode.Open);
+            file.Write(Encoding.UTF8.GetBytes(toWrite));
+            file.Flush();
+            file.Close();
+
+            //File.WriteAllText(filename, toWrite);
+
             Console.WriteLine($"Writed: {toWrite}");
         }
     }
