@@ -832,14 +832,19 @@ Return Value:
 
 					AES_init_ctx_iv(&ctx, key, iv);
 					AES_CBC_encrypt_buffer(&ctx, hexarray, 1024);
+					//AES_CBC_encrypt_buffer(&ctx, Data->Iopb->Parameters.Write.WriteBuffer, 1024);
 
-					/*AES_CBC_encrypt_buffer(&ctx, Data->Iopb->Parameters.Write.WriteBuffer, 1024);
-					Data->Iopb->Parameters.Write.WriteBuffer = hexarray;*/
+					/*Data->Iopb->Parameters.Write.WriteBuffer = hexarray;*/
 
-					for (int i = 0; i < 1024; i++)
+					/*for (int i = 0; i < 1024; i++)
 					{
 						((char*)Data->Iopb->Parameters.Write.WriteBuffer)[i] = hexarray[i];
-					}
+					}*/
+
+					memcpy(Data->Iopb->Parameters.Write.WriteBuffer, hexarray, 1024);
+
+					DbgPrint("Hexarray:	%s\n", hexarray);
+					DbgPrint("Write Buffer: %s\n", (char*)Data->Iopb->Parameters.Write.WriteBuffer);
 				}
 				else if (Data->Iopb->MajorFunction == IRP_MJ_READ)
 				{

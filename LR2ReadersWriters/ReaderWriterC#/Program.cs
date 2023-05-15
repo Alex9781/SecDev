@@ -13,7 +13,7 @@ namespace ReaderWriter
 
         static void ProcessInput()
         {
-            Console.Write("[read]/[write]: ");
+            Console.Write("[r]/[w]: ");
             string? input = Console.ReadLine();
 
             if (input != null)
@@ -23,9 +23,9 @@ namespace ReaderWriter
                 switch (splitedInput[0])
                 {
                     case "h":
-                        Console.WriteLine("read [file]\nwrite [file]");
+                        Console.WriteLine("r [file]\nw [file]");
                         break;
-                    case "read":
+                    case "r":
                         if (splitedInput.Count == 1)
                         {
                             Console.WriteLine("Type h for help");
@@ -33,7 +33,7 @@ namespace ReaderWriter
                         }
                         ReadFile(splitedInput[1]);
                         break;
-                    case "write":
+                    case "w":
                         if (splitedInput.Count == 1)
                         {
                             Console.WriteLine("Type h for help");
@@ -63,9 +63,7 @@ namespace ReaderWriter
             file.Flush();
             file.Close();
 
-            //File.WriteAllText(filename, toWrite);
-
-            Console.WriteLine($"Writed: {toWrite}");
+            Console.WriteLine(toWrite);
         }
     }
 }
